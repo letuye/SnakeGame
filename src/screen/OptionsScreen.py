@@ -4,14 +4,14 @@ class OptionsScreen:
 	def __init__(self, interface):
 		self.interface = interface
 		self.screen = interface.screen
-		self.width, self.height = self.screen.get_size()
+		#self.width, self.height = self.screen.get_size()
 		self.background = load_image("bg.png")
 
 	def draw(self):
-		#self.screen.fill((37, 43, 141))
+		self.width, self.height = self.screen.get_size()
 		self.background = pygame.transform.scale(self.background, (self.width, self.height))
 		self.screen.blit(self.background, (0,0))
-		self.back_button = draw_button(self.screen, "Back", self.width //2, self.height //2 , 200, 50, 30, "#27E7C9","#22bda5")
+		self.back_button = draw_button(self.screen, "Back", self.width //2, self.height //2 , self.width //5, self.height //12, 30, "#27E7C9","#22bda5")
 
 	def handle_events(self):
 		for event in pygame.event.get():

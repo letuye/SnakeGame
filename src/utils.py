@@ -1,11 +1,6 @@
 import pygame
 import os
 
-# Định nghĩa màu sắc
-WHITE = (255, 255, 255)
-GRAY = (200, 200, 200)
-BLACK = (0, 0, 0)
-
 # khai báo thư mục chứa tài nguyên assets
 ASSET_DIR = "asserts"
 SOUND_DIR = os.path.join(ASSET_DIR, "sounds")
@@ -22,17 +17,16 @@ def load_image(filename):
 def load_sound(filename):
     """Load âm thanh từ thư mục assets/sounds"""
     path = os.path.join(SOUND_DIR, filename)
-    sound = pygame.mixer.Sound(path)
-    return sound
+    return pygame.mixer.Sound(path)
 
 # Hàm tải font chữ
 def load_font(filename, size):
-    #Load font từ thư mục assets/fonts
+    """Load font từ thư mục assets/fonts"""
     path = os.path.join(FONT_DIR, filename)
     return pygame.font.Font(path, size)
 
 # Hàm vẽ nút bấm với hiệu ứng hover
-def draw_button(screen, text, center_x, center_y, width, height, font_size=30, color=GRAY, hover_color=WHITE):
+def draw_button(screen, text, center_x, center_y, width, height, font_size=30, color = (), hover_color = ()):
     mouse_x, mouse_y = pygame.mouse.get_pos() #Lấy vị trí chuột 
     x = center_x - width // 2
     y = center_y - height // 2
@@ -46,7 +40,7 @@ def draw_button(screen, text, center_x, center_y, width, height, font_size=30, c
     else:
         pygame.draw.rect(screen, color, button_rect,3,10)
         text_surface = font.render(text, True, "#33ffff")
-    text_rect = text_surface.get_rect(center=(x + width // 2, y + height // 2)) 
+    text_rect = text_surface.get_rect(center=(x + width // 2, y + height // 2))
     screen.blit(text_surface, text_rect)
     return button_rect
 
