@@ -1,5 +1,6 @@
 import pygame
 
+from sprites.food import Food
 from utils import draw_button, load_image
 
 class PlayScreen:
@@ -9,6 +10,9 @@ class PlayScreen:
 		#self.width, self.height = self.screen.get_size()
 		self.background = load_image("bggrass.png")
 		self.head = load_image("head_down.png")
+
+		# Tạo mồi ban đầu
+		self.food = Food(grid_size=20, screen_width=self.screen.get_width(), screen_height=self.screen.get_height())
 
 	def draw(self):
 		self.width, self.height = self.screen.get_size()
@@ -22,6 +26,9 @@ class PlayScreen:
 		self.head = pygame.transform.scale(self.head, (20,20))
 		self.screen.blit(self.head, (100,100))
 		
+		# Vẽ mồi
+		self.food.draw(self.screen)
+	
 	def handle_events(self):
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
