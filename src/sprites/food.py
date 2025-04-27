@@ -4,10 +4,10 @@ from utils import load_image
 
 # Danh sách các loại mồi với điểm và ảnh tương ứng
 FOODS = {
+    'grape': {'image': 'grape.png', 'score': 5},
     'apple': {'image': 'apple.png', 'score': 10},
     'banana': {'image': 'banana.png', 'score': 15},
-    'cherry': {'image': 'cherry.png', 'score': 20},
-    'grape': {'image': 'grape.png', 'score': -5},
+    'cherry': {'image': 'cherry.png', 'score': 20}
 }
 
 class Food(pygame.sprite.Sprite):
@@ -44,7 +44,13 @@ class Food(pygame.sprite.Sprite):
         self.score = food_info['score']
 
     def draw(self, screen):
-        """Vẽ mồi lên màn hình"""
-        # Cập nhật kích thước màn hình hiện tại
         self.screen_width, self.screen_height = screen.get_size()
         screen.blit(self.image, self.rect)
+
+
+             
+		
+        
+
+
+	    
