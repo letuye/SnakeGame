@@ -7,7 +7,7 @@ class GameOver:
 		self.screen = interface.screen
 		self.width, self.height = self.screen.get_size()
 		self.score = score
-		self.high_score = high_score
+		self.high_score = 0
 		self.background = load_image("bg.png")
 
 	def draw(self):
